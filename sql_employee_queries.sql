@@ -23,7 +23,6 @@ join employees
 on dept_mgr.emp_no = employees.emp_no;
 
 
-
 --4. List the department of each employee with the following 
 --information: employee number, last name, first name, and department name.
 select dept_employees.emp_no, employees.last_name, employees.first_name, departments.dept_name
@@ -32,7 +31,6 @@ join employees
 on dept_employees.emp_no = employees.emp_no
 join departments
 on dept_employees.dept_no = departments.dept_no;
-
 
 
 --5. List first name, last name, and sex for employees 
@@ -69,3 +67,7 @@ where departments.dept_name = 'Sales' or departments.dept_name = 'Development';
 --8. In descending order, list the frequency count of employee last names, 
 --i.e., how many employees share each last name.
 
+select last_name, count(last_name) as "Frequency"
+from employees
+group by last_name
+order by "Frequency" desc;
